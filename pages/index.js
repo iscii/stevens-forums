@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link"
 
 import Nav from "../components/Nav.js";
 import Notecard from "../components/Notecard.js";
@@ -56,6 +57,11 @@ export default function Home() {
 					<h1 className="mb-5 mt-5 text-center text-7xl">
 						Death
 					</h1>
+					<Link href="/create_post">
+						<a className="text-4xl">
+							Create Post
+						</a>
+					</Link>
 					<Notecard />
 				</span>
 			</span>
