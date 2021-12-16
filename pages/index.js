@@ -40,6 +40,8 @@ async function test() {
 	}
 }
 
+// another test
+
 export default function Home() {
 	return (
 		<div className="flex flex-col justify-start" onLoad={test()}>
