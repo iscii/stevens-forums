@@ -5,6 +5,8 @@ module.exports = {
   ],
   theme: {
     colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
       'pri-white': '#ffffff',
       'pri-red': '#9D1535',
       'pri-gray': '#e5e7eb',
