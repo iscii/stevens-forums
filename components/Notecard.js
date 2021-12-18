@@ -1,8 +1,3 @@
-
-
-
-
-
 function Notecard() {
 	return (
 		<div className="w-full h-min bg-pri-gray">
