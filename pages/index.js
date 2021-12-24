@@ -28,6 +28,9 @@ const db = getFirestore(app);
 /*
  * @todo Write Documentation
  * @todo Make favicon work
+ * @todo Get account creation page up
+ * 		-> firebase authentication
+ * 		-> writing rules & db testing
  */
 async function test() {
 	try {
