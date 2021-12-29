@@ -58,6 +58,7 @@ const test2 = async function(){
 //SUCCESSSSSS!!!!!! THE AUTH WORKS IN THE EMULATOR. FINALLY. NO WONDER WHAT WAS WRONG
 /* 
 *	emulator auth accounts are separate from the actual auth accounts	
+*	go to http://localhost:4000/auth to see the emulator accounts
 *	connectAuthEmulator connects to the firebase emulator localhost address, not the website localhost
 *	starts auth emulator so that the auth can connect to it with connectAuthEmulator
 *	$ npm run dev
