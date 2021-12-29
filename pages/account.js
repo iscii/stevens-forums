@@ -31,7 +31,8 @@ function Account() {
 	)
 }
 
-const test = async function(){
+//uncomment to test backend
+/* const test = async function(){
   	console.log("hi");
 	try {
 		const cred = await createUserWithEmailAndPassword(auth, document.getElementById("s-email").value, document.getElementById("s-pass").value);
@@ -53,7 +54,7 @@ const test2 = async function(){
 	catch(e){
 		console.log("error: \n" + e);
 	}
-}
+} */
 
 //SUCCESSSSSS!!!!!! THE AUTH WORKS IN THE EMULATOR. FINALLY. NO WONDER WHAT WAS WRONG
 /* 
