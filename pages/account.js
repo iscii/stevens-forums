@@ -1,7 +1,7 @@
 import Nav from "../components/Nav";
 
 import { auth } from "../lib/firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
 function Account() {
 	return (
@@ -31,10 +31,21 @@ function Account() {
 async function login() {
 	try {
 		const creds = await signInWithEmailAndPassword(auth, document.getElementById("l-email").value, document.getElementById("l-pass").value);
-		console.log("success!");
+		console.log("login success!");
+		//go to home page
+		//account module to show username
 	}
 	catch (e) {
-		// have a text box stating issue switch-case based on error (invalid email, invalid password, user not found, etc); 
+		console.log("error: \n" + e);
+	}
+}
+
+async function logout() {
+	try {
+		const creds = await signOut(auth);
+		console.log("logout success!");
+	}
+	catch (e) {
 		console.log("error: \n" + e);
 	}
 }
@@ -42,10 +53,28 @@ async function login() {
 async function signup() {
 	try {
 		const creds = await createUserWithEmailAndPassword(auth, document.getElementById("s-email").value, document.getElementById("s-pass").value);
-		console.log("success!");
+		console.log("signup success!");
 	}
 	catch (e) {
 		console.log("error: \n" + e);
+		const emsg = e.toString()
+		if(!(emsg.includes("FirebaseError") || emsg.includes("auth/"))){
+			//show text unknown error occured
+			return;
+		}
+
+		//make up some custom rules too, for non-stevens emails, or for invalid usernames
+		const msg = emsg.split("auth/")[1].slice(0, -2); //"weak-password", "invalid-email", etc...
+		switch(msg){
+			case "invalid-email":
+				break;
+			case "weak-password":
+				break;
+			case "email-already-in-use": 
+				break;
+			default:
+				break;
+		}
 	}
 }
 
