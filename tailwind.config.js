@@ -13,6 +13,8 @@ module.exports = {
       'pri-gray': '#e5e7eb',
       'sub-gray': '#ced0d4',
       'dark-gray': '#a0a2a5',
+      'lavender': '#E6DADD',
+      'mountbatten': '#997980',
     },
     extend: {},
   },

@@ -13,7 +13,7 @@ export default function Home() {
 				<link rel="shortcut icon" href="/amogus.svg" type="image/x-icon" />
 			</Head>
 			<Nav />
-			<span className="flex h-screen v-screen">
+			<span className="flex h-screen v-screen bg-lavender">
 				<span className="h-5/6 w-2/4 m-auto">
 					<h1 className="mb-5 mt-5 text-center text-7xl">
 						Death
