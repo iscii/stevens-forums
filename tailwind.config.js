@@ -12,6 +12,7 @@ module.exports = {
       'dark-red': '#7e112a',
       'pri-gray': '#e5e7eb',
       'sub-gray': '#ced0d4',
+      'light-gray': '#EBE5E5',
       'dark-gray': '#a0a2a5',
       'lavender': '#E6DADD',
       'mountbatten': '#997980',
