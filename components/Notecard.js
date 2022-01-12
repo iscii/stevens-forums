@@ -1,6 +1,6 @@
 function Notecard() {
 	return (
-		<div className="w-full h-min bg-mountbatten">
+		<div className="w-full h-min bg-pri-white">
 			<div className="w-full p-8 leading-10">
 				<div className="w-min h-min">
 					<span className="px-2 py-1 mr-4 bg-red-200 border rounded-lg border-pri-red">Tag</span>
