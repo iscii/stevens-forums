@@ -11,6 +11,9 @@ export default function Home() {
 				<title>Sex money</title>
 				<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> //fallback icon
 				<link rel="shortcut icon" href="/amogus.svg" type="image/x-icon" />
+				<style>
+					@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
+				</style>
 			</Head>
 			<Nav />
 			<span className="flex h-screen v-screen bg-lavender">

@@ -19,6 +19,9 @@ module.exports = {
       'pri-black': '#000000',
       'pri-red': '#9D1535', // main Stevens red
     },
+    fontFamily: {
+      'quicksand': ['quicksand']
+    },
     extend: {},
   },
   plugins: [],
