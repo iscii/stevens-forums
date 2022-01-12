@@ -7,15 +7,17 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+      gray: {
+        100: '#E5E7EB', // box borders
+        200: '#CED0D4', // upvote/downvote
+        300: '#A0A2A5', // dark outlines, sub-text
+      },
+      pink: {
+        100: '#F5F0F1', // background color
+      },
       'pri-white': '#ffffff',
-      'pri-red': '#9D1535',
-      'dark-red': '#7e112a',
-      'pri-gray': '#e5e7eb',
-      'sub-gray': '#ced0d4',
-      'light-gray': '#EBE5E5',
-      'dark-gray': '#a0a2a5',
-      'lavender': '#E6DADD',
-      'mountbatten': '#997980',
+      'pri-black': '#000000',
+      'pri-red': '#9D1535', // main Stevens red
     },
     extend: {},
   },
