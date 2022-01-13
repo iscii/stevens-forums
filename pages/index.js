@@ -3,6 +3,7 @@ import Link from "next/link"
 
 import Nav from "../components/Nav.js";
 import Notecard from "../components/Notecard.js";
+import Sidebar from "../components/Sidebar";
 
 export default function Home() {
 	return (
@@ -18,7 +19,11 @@ export default function Home() {
 
 			<Nav />
 
-			<span className="flex h-screen v-screen bg-pink-100">
+			<span className="flex min-h-screen h-full bg-pink-100">
+
+				<div className="absolute mt-52 ml-12">
+					<Sidebar />
+				</div>
 
 				<span className="h-5/6 w-5/12	 m-auto mt-36">
 					<div className="flex justify-between my-4">
@@ -35,6 +40,13 @@ export default function Home() {
 
 					<div className="w-auto h-auto border border-solid border-gray-200">
 						<Notecard />
+						<Notecard />
+						<Notecard />
+						<Notecard />
+					</div>
+
+					<div className="flex items-center justify-center mt-32 mb-20 text-3xl">
+						ඞ That's all for now. Come back later!
 					</div>
 
 				</span>
