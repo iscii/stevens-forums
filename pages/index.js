@@ -26,12 +26,12 @@ export default function Home() {
 							Welcome back!
 						</span>
 						<Link href="/create_post">
-							<a className="text-2xl">
-								Create Post
-							</a>
+							<a className="text-xl font-quicksand font-bold bg-pri-white border border-pri-white drop-shadow-lg rounded-3xl px-2 py-1">Create Post</a>
 						</Link>
 					</div>
-					<Notecard />
+					<div className="w-auto h-auto border border-solid border-gray-200">
+						<Notecard />
+					</div>
 				</span>
 			</span>
 		</div>
