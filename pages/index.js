@@ -15,8 +15,11 @@ export default function Home() {
 					@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
 				</style>
 			</Head>
+
 			<Nav />
+
 			<span className="flex h-screen v-screen bg-pink-100">
+
 				<span className="h-5/6 w-5/12	 m-auto mt-36">
 					<div className="flex justify-between my-4">
 						<span className="text-2xl font-quicksand font-bold flex align-center">
@@ -29,9 +32,11 @@ export default function Home() {
 							<a className="text-xl font-quicksand font-bold bg-pri-white border border-pri-white drop-shadow-lg rounded-3xl px-2 py-1">Create Post</a>
 						</Link>
 					</div>
+
 					<div className="w-auto h-auto border border-solid border-gray-200">
 						<Notecard />
 					</div>
+
 				</span>
 			</span>
 		</div>
