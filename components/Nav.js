@@ -5,7 +5,7 @@ import Searchbar from "../components/Searchbar"
 
 function Nav() {
 	return (
-		<div className="fixed flex justify-between items-center h-auto w-full bg-pri-white">
+		<div className="fixed flex justify-between items-center h-auto w-full bg-pri-white z-10">
 			<Link href="/">
 				<a>
 					<div className="px-6 py-2 float-left flex items-center justify-center hover:bg-dark-red">
