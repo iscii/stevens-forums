@@ -8,24 +8,34 @@ import Sidebar from "../components/Sidebar";
 export default function Home() {
 	return (
 		<div className="flex flex-col justify-start">
+
+			{/*
+				Change title and favicon (browser icon) here
+				Also using Quicksand font as default font, fallback on sans-serif!
+			*/}
 			<Head>
-				<title>Sex money</title>
-				<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> //fallback icon
-				<link rel="shortcut icon" href="/amogus.svg" type="image/x-icon" />
+				<title>Issac Fan Club</title>
+				<link rel="shortcut icon" href="/atillalogo.png" type="image/x-icon" /> {/* main icon */}
 				<style>
 					@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
 				</style>
 			</Head>
 
+			{/* Global navigation bar */}
 			<Nav />
 
+			{/* Creates screen sized div for home page */}
 			<span className="flex min-h-screen h-full bg-pink-100">
 
+				{/* Sidebar for sorting posts */}
 				<div className="absolute mt-52 ml-12">
 					<Sidebar />
 				</div>
 
+				{/* Container for header and posts */}
 				<span className="h-5/6 w-5/12	 m-auto mt-36">
+
+					{/* Header with welcome message and create post button */}
 					<div className="flex justify-between my-4">
 						<span className="text-2xl font-quicksand font-bold flex align-center">
 							<svg className="h-8 w-8 mr-2 fill-pri-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -38,6 +48,7 @@ export default function Home() {
 						</Link>
 					</div>
 
+					{/* Notecard container */}
 					<div className="w-auto h-auto border border-solid border-gray-200">
 						<Notecard />
 						<Notecard />
@@ -45,6 +56,7 @@ export default function Home() {
 						<Notecard />
 					</div>
 
+					{/* Simple footer to denote no more posts */}
 					<div className="flex items-center justify-center mt-32 mb-20 text-3xl">
 						ඞ That's all for now. Come back later!
 					</div>
