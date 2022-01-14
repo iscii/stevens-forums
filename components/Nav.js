@@ -37,8 +37,6 @@ function Nav() {
 				<Signup />
 			</div>
 
-			{/* gotta get this into account box without interfering with link smhw, prolly will fix when backend integration*/}
-
 			<div className="px-6 py-2 float-right hover:bg-dark-red hover:underline">
 				<button className="w-24 text-pri-red bg-pri-white font-bold py-1 px-3 border-2 border-pri-red rounded-3xl" onClick={toggle}>Log In</button>
 				<button className="w-24 ml-4 text-pri-white bg-pri-red font-bold py-1 px-3 border-2 border-pri-red rounded-3xl" onClick={toggle}>Sign up</button>
