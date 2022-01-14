@@ -34,7 +34,9 @@ function Nav() {
 				</form>
 			</div>
 
-			<button onClick={toggle}>Sign up</button>
+			{/* <div className="fixed top-0 w-screen h-screen flex justify-center items-center" style={{ display: showMe ? "flex" : "none" }}>
+				<Login />
+			</div> */}
 
 			<div className="fixed top-0 w-screen h-screen flex justify-center items-center" style={{ display: showMe ? "flex" : "none" }}>
 				<Signup />
