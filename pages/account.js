@@ -58,19 +58,19 @@ async function signup() {
 	catch (e) {
 		console.log("error: \n" + e);
 		const emsg = e.toString()
-		if(!(emsg.includes("FirebaseError") || emsg.includes("auth/"))){
+		if (!(emsg.includes("FirebaseError") || emsg.includes("auth/"))) {
 			//show text unknown error occured
 			return;
 		}
 
 		//make up some custom rules too, for non-stevens emails, or for invalid usernames
 		const msg = emsg.split("auth/")[1].slice(0, -2); //"weak-password", "invalid-email", etc...
-		switch(msg){
+		switch (msg) {
 			case "invalid-email":
 				break;
 			case "weak-password":
 				break;
-			case "email-already-in-use": 
+			case "email-already-in-use":
 				break;
 			default:
 				break;
