@@ -14,7 +14,7 @@ export default function Home() {
 				Also using Quicksand font as default font, fallback on sans-serif!
 			*/}
 			<Head>
-				<title>Issac Fan Club</title>
+				<title>I think you may have dropped your crown 👑</title>
 				<link rel="shortcut icon" href="/atillalogo.png" type="image/x-icon" /> {/* main icon */}
 				<style>
 					@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
