@@ -1,9 +1,17 @@
 import Link from "next/link"
 import Image from "next/image"
+import React, { useState } from 'react'
 
 import Searchbar from "../components/Searchbar"
+import Signup from "../components/Signup"
 
 function Nav() {
+	{/* Stolen from stackoverflow */ }
+	const [showMe, setShowMe] = useState(false);
+	function toggle() {
+		setShowMe(!showMe);
+	}
+
 	return (
 		<div className="fixed flex justify-between items-center h-auto w-full bg-pri-white z-10">
 			<Link href="/">
@@ -18,6 +26,12 @@ function Nav() {
 
 			<div className="flex justify-center items-center w-1/2">
 				<Searchbar />
+			</div>
+
+			<button onClick={toggle}>Sign up</button>
+
+			<div className="fixed top-0 w-screen h-screen flex justify-center items-center" style={{ display: showMe ? "flex" : "none" }}>
+				<Signup />
 			</div>
 
 			<Link href="/account">
