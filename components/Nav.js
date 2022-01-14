@@ -18,7 +18,7 @@ function Nav() {
 				<a>
 					<div className="px-6 py-2 float-left flex items-center justify-center hover:bg-dark-red">
 						<Image src={"/atillalogo.png"} alt="atilla" width={70} height={70} />
-						<p className="font-quicksand font-bold text-3xl text-pri-red pl-4">ste</p>
+						<p className="font-quicksand font-bold text-3xl text-pri-red pl-4">duck</p>
 						<p className="font-quicksand font-bold text-3xl">forums</p>
 					</div>
 				</a>
