@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import React, { useState } from 'react'
 
 export default function Login() {
@@ -38,9 +39,13 @@ export default function Login() {
 					</button>
 					<h1 className="align-center text-center text-6xl my-12">Welcome back!</h1>
 					<input className="bg-gray-100 w-5/12 p-3 mb-6 text-pri-black placeholder-pri-black" type="text" placeholder="Stevens E-mail" />
-					<input className="bg-gray-100 w-5/12 p-3 py-3 mb-6 text-pri-black placeholder-pri-black" type="text" placeholder="Password" />
-					<button></button>
-					<p>Oops, haven't signed up? <a className="text-hyperlink underline cursor-pointer" onClick={switchToSignup}>Sign up here!</a></p>
+					<div className="w-5/12 mb-6">
+						<input className="bg-gray-100 w-full p-3 py-3 text-pri-black placeholder-pri-black" type="text" placeholder="Password" />
+						<br />
+						<p className="text-sm">Forget something? <Link href="/"><a className="text-hyperlink">Click here!</a></Link></p>
+					</div>
+					<button className="bg-pri-red px-6 py-2 text-lg text-pri-white border rounded-full">Log in</button>
+					<p className="mt-20">Oops, haven't signed up? <a className="text-hyperlink underline cursor-pointer" onClick={switchToSignup}>Sign up here!</a></p>
 				</span>
 				<span className="relative h-4/6 w-1/6 flex justify-end border border-transparent rounded-tr-xl rounded-br-xl">
 					<Image className="border border-transparent rounded-tr-xl rounded-br-xl" src="/chrombubble.jpeg" layout="fill" objectFit="cover" priority />
@@ -61,8 +66,8 @@ export default function Login() {
 						</svg>
 					</button>
 					<h1 className="align-center text-center text-6xl my-12">Join our talented community!</h1>
-					<input className="bg-gray-100 px-2 py-2 mb-4 text-pri-black placeholder-pri-black" type="text" placeholder="Stevens E-mail" />
-					<input className="bg-gray-100 px-2 py-2 mb-4 text-pri-black placeholder-pri-black" type="text" placeholder="Password" />
+					<input className="bg-gray-100 w-5/12 p-3 mb-6 text-pri-black placeholder-pri-black" type="text" placeholder="Stevens E-mail" />
+					<button className="bg-pri-red px-6 py-2 text-lg text-pri-white border rounded-full">Sign up</button>
 				</span>
 				<span className="relative h-4/6 w-1/6 flex justify-end border border-transparent rounded-tr-xl rounded-br-xl">
 					<Image className="border border-transparent rounded-tr-xl rounded-br-xl" src="/chrombubble.jpeg" layout="fill" objectFit="cover" priority />
