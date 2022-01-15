@@ -2,12 +2,12 @@ import Link from "next/link"
 import Image from "next/image"
 import React, { useState } from 'react'
 
-import Login from "../components/Login"
-import Signup from "../components/Signup"
+import SignupLogin from "../components/SignupLogin"
 
 function Nav() {
 	return (
 		<div className="fixed flex justify-between items-center h-auto w-full bg-pri-white z-10">
+			{/* Our DuckForums logo. The duck's name is Atilla, Steven's school mascot :D click on his face to go to home page */}
 			<Link href="/">
 				<a>
 					<div className="px-6 py-2 float-left flex items-center justify-center hover:bg-dark-red">
@@ -18,6 +18,7 @@ function Nav() {
 				</a>
 			</Link>
 
+			{/* Search bar */}
 			<div className="flex justify-center items-center w-1/2">
 				<form action="/" className="w-4/6 h-12 flex justify-end items-center">
 					<input type="text" placeholder="Search..." className="w-full h-full border bg-pri-gray border-pri-gray rounded-3xl px-3 focus:outline-none focus:border-dark-gray" />
@@ -30,8 +31,10 @@ function Nav() {
 			</div>
 
 			<div className="px-6 py-2 float-right hover:bg-dark-red hover:underline">
-				<Login />
-				<Signup />
+				{/* Sign up and log in buttons built into one component */}
+				<SignupLogin />
+
+				{/* Account profile pic and link to account page */}
 				<Link href="/account">
 					<a className="text-pri-white cursor-pointer">
 						{/* <span className="text-pri-black text-lg">Name#0000</span> */}
