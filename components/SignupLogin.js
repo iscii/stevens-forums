@@ -36,7 +36,7 @@ export default function Login() {
 							<path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
 						</svg>
 					</button>
-					<h1 className="align-center text-center text-6xl my-12">Join our talented community!</h1>
+					<h1 className="align-center text-center text-6xl my-12">Welcome back!</h1>
 					<input className="bg-gray-100 w-5/12 p-3 mb-6 text-pri-black placeholder-pri-black" type="text" placeholder="Stevens E-mail" />
 					<input className="bg-gray-100 w-5/12 p-3 py-3 mb-6 text-pri-black placeholder-pri-black" type="text" placeholder="Password" />
 					<button></button>

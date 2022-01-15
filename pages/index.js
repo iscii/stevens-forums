@@ -16,9 +16,7 @@ export default function Home() {
 			<Head>
 				<title>I think you may have dropped your crown 👑</title>
 				<link rel="shortcut icon" href="/atillalogo.png" type="image/x-icon" /> {/* main icon */}
-				<style>
-					@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
-				</style>
+				<link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap' />
 			</Head>
 
 			{/* Global navigation bar */}
