@@ -18,6 +18,7 @@ module.exports = {
       'pri-white': '#ffffff',
       'pri-black': '#000000',
       'pri-red': '#9D1535', // main Stevens red
+      'hyperlink': '#0645AD', // hyperlink blue
     },
     fontFamily: {
       'quicksand': ['quicksand']
