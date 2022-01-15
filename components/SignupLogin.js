@@ -33,7 +33,7 @@ export default function Login() {
 				<span className="relative flex flex-col justify-start items-center h-4/6 w-2/6 bg-pri-white border border-transparent rounded-tl-xl rounded-bl-xl">
 					<button className="self-start m-5" onClick={toggleLogin}>
 						<svg className="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-							<path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+							<path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
 						</svg>
 					</button>
 					<h1 className="align-center text-center text-6xl my-12">Join our talented community!</h1>
@@ -57,7 +57,7 @@ export default function Login() {
 				<span className="relative flex flex-col justify-start items-center h-4/6 w-2/6 bg-pri-white border border-transparent rounded-tl-xl rounded-bl-xl">
 					<button className="self-start m-5" onClick={toggleSignup}>
 						<svg className="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-							<path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+							<path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
 						</svg>
 					</button>
 					<h1 className="align-center text-center text-6xl my-12">Join our talented community!</h1>

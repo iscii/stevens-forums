@@ -16,7 +16,7 @@ function Notecard() {
 					<button className="mr-6">
 						<span className="flex text-gray-300">
 							<svg className="fill-gray-300 h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-								<path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd" />
+								<path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
 							</svg>
 							1 Comment
 						</span>
@@ -39,7 +39,7 @@ function Notecard() {
 				</button>
 				30
 				<button>
-					<svg class="h-8 w-8 fill-pri-white my-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+					<svg className="h-8 w-8 fill-pri-white my-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
 						<path d="M18 9.5a1.5 1.5 0 11-3 0v-6a1.5 1.5 0 013 0v6zM14 9.667v-5.43a2 2 0 00-1.105-1.79l-.05-.025A4 4 0 0011.055 2H5.64a2 2 0 00-1.962 1.608l-1.2 6A2 2 0 004.44 12H8v4a2 2 0 002 2 1 1 0 001-1v-.667a4 4 0 01.8-2.4l1.4-1.866a4 4 0 00.8-2.4z" />
 					</svg>
 				</button>
