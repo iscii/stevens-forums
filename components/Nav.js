@@ -6,19 +6,6 @@ import Login from "../components/Login"
 import Signup from "../components/Signup"
 
 function Nav() {
-	{/* Stolen from stackoverflow */ }
-	{/* Toggle button for login model */ }
-	const [showLogin, setShowLogin] = useState(false);
-	function toggleLogin() {
-		setShowLogin(!showLogin);
-	}
-
-	{/* Toggle button for signup model */ }
-	const [showSignup, setShowSignup] = useState(false);
-	function toggleSignup() {
-		setShowSignup(!showSignup);
-	}
-
 	return (
 		<div className="fixed flex justify-between items-center h-auto w-full bg-pri-white z-10">
 			<Link href="/">
@@ -42,17 +29,9 @@ function Nav() {
 				</form>
 			</div>
 
-			<div className="fixed top-0 w-screen h-screen flex justify-center items-center" style={{ display: showLogin ? "flex" : "none" }}>
-				<Login />
-			</div>
-
-			<div className="fixed top-0 w-screen h-screen flex justify-center items-center" style={{ display: showSignup ? "flex" : "none" }}>
-				<Signup />
-			</div>
-
 			<div className="px-6 py-2 float-right hover:bg-dark-red hover:underline">
-				<button className="w-24 py-1 px-3 text-pri-red bg-pri-white font-bold border-2 border-pri-red rounded-3xl" onClick={toggleLogin}>Log In</button>
-				<button className="w-24 py-1 px-3 ml-4 text-pri-white bg-pri-red font-bold border-2 border-pri-red rounded-3xl" onClick={toggleSignup}>Sign up</button>
+				<Login />
+				<Signup />
 				<Link href="/account">
 					<a className="text-pri-white cursor-pointer">
 						{/* <span className="text-pri-black text-lg">Name#0000</span> */}
