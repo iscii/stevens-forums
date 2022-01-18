@@ -32,6 +32,7 @@ async function login() {
 	try {
 		const creds = await signInWithEmailAndPassword(auth, document.getElementById("l-email").value, document.getElementById("l-pass").value);
 		console.log("login success!");
+
 		//go to home page
 		//account module to show username
 	}
@@ -48,6 +49,13 @@ async function logout() {
 	catch (e) {
 		console.log("error: \n" + e);
 	}
+}
+
+//could have this trigger state change to show password form instead, but the condition remains the same
+async function validateemail(email) {
+	return email.toLowerCase()
+	.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+	&& email.includes("@stevens.edu");
 }
 
 async function signup() {

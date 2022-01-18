@@ -99,8 +99,8 @@ export default function SignupLogin() {
 
 					{/* Actual input fields for signing up */}
 					{/* Also includes switching to log in */}
-					<input className="bg-gray-100 w-5/12 p-3 mb-6 text-pri-black placeholder-pri-black" type="text" placeholder="Stevens E-mail" />
-					<button className="bg-pri-red px-6 py-2 text-lg text-pri-white border rounded-full">Sign up</button>
+					<input id="s-email" className="bg-gray-100 w-5/12 p-3 mb-6 text-pri-black placeholder-pri-black" type="text" placeholder="Stevens E-mail" />
+					<button className="bg-pri-red px-6 py-2 text-lg text-pri-white border rounded-full" onClick={validiateemail(this.value)}>Sign up</button>
 					<p className="mt-20">Already part of our community? <a className="text-hyperlink underline cursor-pointer" onClick={swapToggle}>Log in here!</a></p>
 				</span>
 
