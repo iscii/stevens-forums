@@ -1,3 +1,5 @@
+/*! REDUNDANT FILE !*/
+
 import Nav from "../components/Nav";
 
 import { auth } from "../lib/firebase";
@@ -28,62 +30,6 @@ function Account() {
 	)
 }
 
-async function login() {
-	try {
-		const creds = await signInWithEmailAndPassword(auth, document.getElementById("l-email").value, document.getElementById("l-pass").value);
-		console.log("login success!");
 
-		//go to home page
-		//account module to show username
-	}
-	catch (e) {
-		console.log("error: \n" + e);
-	}
-}
-
-async function logout() {
-	try {
-		const creds = await signOut(auth);
-		console.log("logout success!");
-	}
-	catch (e) {
-		console.log("error: \n" + e);
-	}
-}
-
-//could have this trigger state change to show password form instead, but the condition remains the same
-async function validateemail(email) {
-	return email.toLowerCase()
-	.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-	&& email.includes("@stevens.edu");
-}
-
-async function signup() {
-	try {
-		const creds = await createUserWithEmailAndPassword(auth, document.getElementById("s-email").value, document.getElementById("s-pass").value);
-		console.log("signup success!");
-	}
-	catch (e) {
-		console.log("error: \n" + e);
-		const emsg = e.toString()
-		if (!(emsg.includes("FirebaseError") || emsg.includes("auth/"))) {
-			//show text unknown error occured
-			return;
-		}
-
-		//make up some custom rules too, for non-stevens emails, or for invalid usernames
-		const msg = emsg.split("auth/")[1].slice(0, -2); //"weak-password", "invalid-email", etc...
-		switch (msg) {
-			case "invalid-email":
-				break;
-			case "weak-password":
-				break;
-			case "email-already-in-use":
-				break;
-			default:
-				break;
-		}
-	}
-}
 
 export default Account

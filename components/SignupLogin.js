@@ -2,6 +2,9 @@ import Image from "next/image"
 import Link from "next/link"
 import React, { useState } from 'react'
 
+import { auth } from "../lib/firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+
 {/* 
 A component that displays a `log in` and `sign up` button that toggles respsective models
 Both sign up and login models are implemented together for switching purposes (see function swapToggle())
@@ -99,9 +102,17 @@ export default function SignupLogin() {
 
 					{/* Actual input fields for signing up */}
 					{/* Also includes switching to log in */}
-					<input id="s-email" className="bg-gray-100 w-5/12 p-3 mb-6 text-pri-black placeholder-pri-black" type="text" placeholder="Stevens E-mail" />
-					<button className="bg-pri-red px-6 py-2 text-lg text-pri-white border rounded-full" onClick={validiateemail(this.value)}>Sign up</button>
-					<p className="mt-20">Already part of our community? <a className="text-hyperlink underline cursor-pointer" onClick={swapToggle}>Log in here!</a></p>
+					<div id="s-pri" className="w-full flex flex-col justify-start items-center"> {/* using id since we're using an event to modify ui. if there is a better way do revise */}
+						<input id="s-email" className="bg-gray-100 w-5/12 p-3 mb-6 text-pri-black placeholder-pri-black" type="text" placeholder="Stevens E-mail" />
+						<button className="bg-pri-red px-6 py-2 text-lg text-pri-white border rounded-full" onClick={validateemail}>Next</button>
+						<p className="mt-20">Already part of our community? <a className="text-hyperlink underline cursor-pointer" onClick={swapToggle}>Log in here!</a></p>
+					</div>
+
+					{/* Signup password field */}
+					<div id="s-sec" className="w-full hidden flex-col justify-start items-center">
+						<input id="s-email" className="bg-gray-100 w-5/12 p-3 mb-6 text-pri-black placeholder-pri-black" type="text" placeholder="Stevens E-mail" />
+						<button className="bg-pri-red px-6 py-2 text-lg text-pri-white border rounded-full" onClick={validateemail}>Next</button>
+					</div>
 				</span>
 
 				{/* Side image */}
@@ -111,4 +122,65 @@ export default function SignupLogin() {
 			</div>
 		</>
 	)
+}
+
+async function login() {
+	try {
+		const creds = await signInWithEmailAndPassword(auth, document.getElementById("l-email").value, document.getElementById("l-pass").value);
+		console.log("login success!");
+
+		//go to home page
+		//account module to show username
+	}
+	catch (e) {
+		console.log("error: \n" + e);
+	}
+}
+
+async function logout() {
+	try {
+		const creds = await signOut(auth);
+		console.log("logout success!");
+	}
+	catch (e) {
+		console.log("error: \n" + e);
+	}
+}
+
+//could have this trigger state change to show password form instead, but the condition remains the same
+async function validateemail() {
+	let email = document.getElementById("s-email").value;
+	console.log(
+		email.toLowerCase()
+	   .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) //is valid email
+	   && email.includes("@stevens.edu") //is a stevens email
+	);
+}
+
+async function signup() {
+	try {
+		const creds = await createUserWithEmailAndPassword(auth, document.getElementById("s-email").value, document.getElementById("s-pass").value);
+		console.log("signup success!");
+	}
+	catch (e) {
+		console.log("error: \n" + e);
+		const emsg = e.toString()
+		if (!(emsg.includes("FirebaseError") || emsg.includes("auth/"))) {
+			//show text unknown error occured
+			return;
+		}
+
+		//make up some custom rules too, for non-stevens emails, or for invalid usernames
+		const msg = emsg.split("auth/")[1].slice(0, -2); //"weak-password", "invalid-email", etc...
+		switch (msg) {
+			case "invalid-email":
+				break;
+			case "weak-password":
+				break;
+			case "email-already-in-use":
+				break;
+			default:
+				break;
+		}
+	}
 }
