@@ -150,6 +150,12 @@ async function logout() {
 //could have this trigger state change to show password form instead, but the condition remains the same
 async function validateemail() {
 	let email = document.getElementById("s-email").value;
+	if(email.toLowerCase()
+	.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) //is valid email
+	&& email.includes("@stevens.edu")){
+		document.getElementById("s-pri").style.display = "none";
+		document.getElementById("s-sec").style.className = "s-sec-anim"; //animation class (?) - slide in from right when email box disappears
+	}
 	console.log(
 		email.toLowerCase()
 	   .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) //is valid email
