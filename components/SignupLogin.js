@@ -5,6 +5,9 @@ import React, { useState } from 'react'
 import { auth } from "../lib/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
+//TODO: implement input sanitization
+//TODO: implement ui responses
+
 {/* 
 A component that displays a `log in` and `sign up` button that toggles respsective models
 Both sign up and login models are implemented together for switching purposes (see function swapToggle())
@@ -19,9 +22,85 @@ export default function SignupLogin() {
 			setShowLogin(!showLogin);
 		//include back button to email -> put the style display changes into its own function...
 		if (signup) {
+			next(true);
+			setShowSignup(!showSignup);
+		}
+	}
+
+	function next(back){
+		if(back){
 			document.getElementById("s-pri").style.display = "flex";
 			document.getElementById("s-sec").classList.replace("flex", "hidden");
-			setShowSignup(!showSignup);
+			return;
+		}
+		document.getElementById("s-pri").style.display = "none";
+		document.getElementById("s-sec").classList.replace("hidden", "flex");
+	}
+
+	async function login() {
+		try {
+			const creds = await signInWithEmailAndPassword(auth, document.getElementById("l-email").value, document.getElementById("l-pass").value);
+			console.log("login success!");
+	
+			//go to home page
+			//account module to show username
+		}
+		catch (e) {
+			console.log("error: \n" + e);
+		}
+	}
+	
+	async function logout() {
+		try {
+			const creds = await signOut(auth);
+			console.log("logout success!");
+		}
+		catch (e) {
+			console.log("error: \n" + e);
+		}
+	}
+	
+	//could have this trigger state change to show password form instead, but the condition remains the same
+	async function validateemail() {
+		let email = document.getElementById("s-email").value;
+		if (email.toLowerCase()
+			.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) //is valid email
+			&& email.includes("@stevens.edu")) {
+			next();
+		}
+		else{
+			//add textbox when invalid. could split the conditional into two if we want it to be more user-friendly
+		}
+	}
+	
+	async function signup() {
+		if(document.getElementById("s-pass").value !== document.getElementById("s-cpass").value) return console.log("passwords do not match!");
+		try {
+			const creds = await createUserWithEmailAndPassword(auth, document.getElementById("s-email").value, document.getElementById("s-pass").value);
+			console.log("signup success!");
+			setShowLogin(false);
+			setShowSignup(false);
+		}
+		catch (e) {
+			console.log("error: \n" + e);
+			const emsg = e.toString()
+			if (!(emsg.includes("FirebaseError") || emsg.includes("auth/"))) {
+				//show text unknown error occured
+				return;
+			}
+	
+			//make up some custom rules too, for non-stevens emails, or for invalid usernames
+			const msg = emsg.split("auth/")[1].slice(0, -2); //"weak-password", "invalid-email", etc...
+			switch (msg) {
+				case "invalid-email":
+					break;
+				case "weak-password":
+					break;
+				case "email-already-in-use":
+					break;
+				default:
+					break;
+			}
 		}
 	}
 
@@ -109,8 +188,10 @@ export default function SignupLogin() {
 					{/* TODO: slide-fade in/out animation? */}
 					{/* Signup password field */}
 					<div id="s-sec" className="w-full hidden flex-col justify-start items-center">
-						<input id="s-email" className="bg-gray-100 w-5/12 p-3 mb-6 text-pri-black placeholder-pri-black" type="text" placeholder="New Password" />
+						<input id="s-pass" className="bg-gray-100 w-5/12 p-3 mb-6 text-pri-black placeholder-pri-black" type="password" placeholder="New Password" />
+						<input id="s-cpass" className="bg-gray-100 w-5/12 p-3 mb-6 text-pri-black placeholder-pri-black" type="password" placeholder="Confirm Password" />
 						<button className="bg-pri-red px-6 py-2 text-lg text-pri-white border rounded-full" onClick={signup}>Next</button>
+						<button className="px-6 py-2 text-l text-pri-black" onClick={() => next(true)}>Back</button>
 					</div>
 				</span>
 
@@ -121,69 +202,4 @@ export default function SignupLogin() {
 			</div>
 		</>
 	)
-}
-
-async function login() {
-	try {
-		const creds = await signInWithEmailAndPassword(auth, document.getElementById("l-email").value, document.getElementById("l-pass").value);
-		console.log("login success!");
-
-		//go to home page
-		//account module to show username
-	}
-	catch (e) {
-		console.log("error: \n" + e);
-	}
-}
-
-async function logout() {
-	try {
-		const creds = await signOut(auth);
-		console.log("logout success!");
-	}
-	catch (e) {
-		console.log("error: \n" + e);
-	}
-}
-
-//could have this trigger state change to show password form instead, but the condition remains the same
-async function validateemail() {
-	let email = document.getElementById("s-email").value;
-	if (email.toLowerCase()
-		.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) //is valid email
-		&& email.includes("@stevens.edu")) {
-		document.getElementById("s-pri").style.display = "none";
-		document.getElementById("s-sec").classList.replace("hidden", "flex");
-	}
-	else{
-		//add textbox when invalid. could split the conditional into two if we want it to be more user-friendly
-	}
-}
-
-async function signup() {
-	try {
-		const creds = await createUserWithEmailAndPassword(auth, document.getElementById("s-email").value, document.getElementById("s-pass").value);
-		console.log("signup success!");
-	}
-	catch (e) {
-		console.log("error: \n" + e);
-		const emsg = e.toString()
-		if (!(emsg.includes("FirebaseError") || emsg.includes("auth/"))) {
-			//show text unknown error occured
-			return;
-		}
-
-		//make up some custom rules too, for non-stevens emails, or for invalid usernames
-		const msg = emsg.split("auth/")[1].slice(0, -2); //"weak-password", "invalid-email", etc...
-		switch (msg) {
-			case "invalid-email":
-				break;
-			case "weak-password":
-				break;
-			case "email-already-in-use":
-				break;
-			default:
-				break;
-		}
-	}
 }
