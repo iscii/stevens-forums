@@ -27,6 +27,7 @@ export default function SignupLogin() {
 		}
 	}
 
+	//TODO: REDO USING REACT JAVASCRIPT LOGIC
 	function next(back){
 		if(back){
 			document.getElementById("s-pri").style.display = "flex";
